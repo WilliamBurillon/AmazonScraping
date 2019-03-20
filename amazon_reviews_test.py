@@ -140,7 +140,6 @@ def ReadAsin():
     #AsinList = ['B0058U9TKE/ref=dpx_acr_txt?showViewpoints=2']
     extracted_data = []
     i =1
-    # asin = 'B0058U9TKE/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=' + str(i)
     asin = 'B0058U9TKE/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1'
     print("Downloading and processing page http://www.amazon.fr/dp/" + asin)
 
@@ -155,24 +154,7 @@ def ReadAsin():
         asin = 'B0058U9TKE/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=' + str(i)
         dictTemp=ParseReviews(asin)
 
-    # for i in range(15,19):
-    #    asin = 'B0058U9TKE/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber='+str(i)
-    #    print(extracted_data)
-    #    extracted_data[0]['reviews'] = extracted_data[0]['reviews'] + ParseReviews(asin)['reviews']
-    #    sleep(5)
 
-    # while len(ParseReviews(asin )['reviews'])!=0:
-    #     asin = 'B0058U9TKE/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=' + str(i)
-    #     extracted_data[0]['reviews'] = extracted_data[0]['reviews'] + ParseReviews(asin)['reviews']
-    #     sleep(5)
-
-    # while len(ParseReviews(asin )['reviews'])!=0:
-    #     asin = 'B0058U9TKE/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=' + str(i)
-    #     extracted_data[0]['reviews'] = extracted_data[0]['reviews'] + ParseReviews(asin)['reviews']
-    #     sleep(5)
-    print(extracted_data[0]['reviews'])
-    #     print(asin)
-    #     i+=1
     f = open('data2.json', 'w',encoding='utf-8')
     dump(extracted_data, f, indent=4,ensure_ascii=False)
     f.close()
